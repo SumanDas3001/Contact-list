@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+    <title>My Contacts</title>
+</head>
+<body>
+    <div class="container">
+        <h3 class="center-align">
+            My Contacts
+        </h3>
+        <input type="text" id="filterInput" placeholder="Search Names.."> 
+        <ul id="names" class="collection with-header">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Ayan</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Ajay</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Aamaresh</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Anamika</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bomkeas</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Biplob</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Binayak</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bimal</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chandan</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Champa</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chameli</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chudir vai</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Get input element
+        let filterInput = document.getElementById('filterInput');
+        // Add event listener
+        filterInput.addEventListener('keyup', filterNames); 
+        // keyup is an event
+        function filterNames(){
+            // Get value of input
+           let filterValues = document.getElementById('filterInput').value.toUpperCase();
+           
+           // Get names ul
+           let ul = document.getElementById('names');
+
+           // Get list from ul
+           let li = ul.querySelectorAll('li.collection-item');
+
+           //Loop through collection-item list
+           for(let i = 0;i < li.length;i++){
+               let a = li[i].getElementsByTagName('a')[0];
+
+               // If matched
+               if(a.innerHTML.toUpperCase().indexOf(filterValues) > -1){
+                   li[i].style.display = ''; 
+               }
+               else{
+                li[i].style.display = 'none'; 
+               }
+           }
+           
+
+        }
+    </script>
+</body>
+</html>
